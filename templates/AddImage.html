@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Добавить изображение {% endblock %}
+
+{% block body %}
+
+<div class="add-image-form">
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Название" required>
+        <textarea name="desc" placeholder="Описание" required></textarea>
+        <input type="file" name="FileImg" required>
+        <input type="submit" name="submit" value="Загрузить">
+    </form>
+</div>
+
+{% endblock %}

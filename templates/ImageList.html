@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} Изображения {% endblock %}
+
+{% block body %}
+
+<div class="list">
+{% for img in images %}
+
+<div class="img-block" id="img_{{ img.id }}">
+    <h1>{{ img.title }}</h1>
+    <p>{{ img.description }}</p>
+    <img src="static/img/{{ img.filename }}" alt="{{ img.title }}">
+    <div class="opt-nav">
+        <img src="static/icons/edit.svg" class="edit" alt="">
+        <img src="static/icons/ok.svg" class="ok" alt="">
+        <img src="static/icons/del.svg" class="del" alt="">
+    </div>
+</div>
+
+{% endfor %}
+    <script src="{{ url_for( 'static', filename='js/img_list_opt.js') }}"></script>
+</div>
+{% endblock %}

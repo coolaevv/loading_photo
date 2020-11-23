@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Главная {% endblock %}
+
+{% block body %}
+
+<div class="body-slider">
+    <div class="img-slider" id="{{ leng }}">
+        {% for img in images %}
+        <div class="item img-img">
+            <img src="static/img/{{ img.filename }}" data-id="{{ img.id }}">
+        </div>
+        {% endfor %}
+        <a class="previous" onclick="previousSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+    </div>
+    <div class="num-list-img">
+        <ol class="get_img">
+        {% for img in images %}
+            <li id="{{ img.id }}">{{ img.title }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+</div>
+<script src="{{ url_for( 'static', filename='js/slider.js') }}"></script>
+{% endblock %}
